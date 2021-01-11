@@ -10,17 +10,6 @@ class Login extends React.Component {
     };
   }
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  handleSubmit = () => {
-    localStorage.setItem('token', 'sgdhdngf');
-    window.location.reload();
-  };
-
   render() {
     return (
       <div id="login-wrapper">
@@ -39,7 +28,7 @@ class Login extends React.Component {
                             <i className="icon-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Email" name="email" className="inputFocus" onChange={this.handleChange} />
+                        <Input type="text" placeholder="Email" name="email" className="inputFocus" />
                       </InputGroup>
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
@@ -47,13 +36,7 @@ class Login extends React.Component {
                             <i className="icon-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input
-                          type={this.state.passHidden ? 'password' : 'text'}
-                          placeholder="Password"
-                          name="password"
-                          className="inputFocus"
-                          onChange={this.handleChange}
-                        />
+                        <Input type={this.state.passHidden ? 'password' : 'text'} placeholder="Password" name="password" className="inputFocus" />
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
                             <div className="icon-parts" onClick={() => this.setState({ passHidden: !this.state.passHidden })}>
@@ -64,7 +47,7 @@ class Login extends React.Component {
                       </InputGroup>
                       <Row>
                         <Col xs="6">
-                          <Button value="Submit" color="primary" className="px-4" onClick={this.handleSubmit}>
+                          <Button value="Submit" color="primary" className="px-4">
                             Login
                           </Button>
                         </Col>
@@ -80,7 +63,7 @@ class Login extends React.Component {
                     <CardBody className="text-center">
                       <div>
                         <h2>Welcome</h2>
-                        <p>React Admin Portal</p>
+                        <p>Medicana Admin Portal</p>
                         <Button color="primary" className="mt-3" active>
                           Admin
                         </Button>

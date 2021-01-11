@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
 import loadable from 'loadable-components';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import './Assets/Css/PortalTheme.css';
 
@@ -15,12 +15,12 @@ const DefaultLayout = loadable(() => import('./containers'), { LoadingComponent:
 class App extends Component {
   render() {
     return (
-      <HashRouter>
+      <Router>
         <Switch>
           {localStorage.getItem('token') ? null : <Route path="/login" name="Login" component={Login} />}
           <Route path="/" component={DefaultLayout} />
         </Switch>
-      </HashRouter>
+      </Router>
     );
   }
 }

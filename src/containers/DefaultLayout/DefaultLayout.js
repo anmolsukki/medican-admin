@@ -1,10 +1,10 @@
+import { AppBreadcrumb, AppFooter, AppHeader, AppSidebar, AppSidebarMinimizer, AppSidebarNav } from '@coreui/react';
 import React, { Component, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { Container } from 'reactstrap';
-import { AppBreadcrumb, AppFooter, AppHeader, AppSidebar, AppSidebarNav, AppSidebarMinimizer } from '@coreui/react';
+import Navigation from '../../Configuration/Navbar/Navbar';
 import { PrivateRoute } from '../../Configuration/Router/PrivateRoute';
 import Routes from '../../Configuration/Router/Routes';
-import Navigation from '../../Configuration/Navbar/Navbar';
 
 const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
 const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
@@ -39,17 +39,9 @@ class DefaultLayout extends Component {
                     if (route.isPrivate) {
                       return <PrivateRoute key={idx} path={route.path} exact={route.exact} name={route.name} component={route.component} />;
                     }
-                    return route.component ? (
-                      <Route
-                        key={idx}
-                        path={route.path}
-                        exact={route.exact}
-                        name={route.name}
-                        render={(props) => <route.component {...props} />}
-                      />
-                    ) : null;
+                    return route.component ? <Route key={idx} path={route.path} exact={route.exact} name={route.name} render={(props) => <route.component {...props} />} /> : null;
                   })}
-                  <Redirect from="/" to="/users" />
+                  <Redirect from="/" to="/dashboard" />
                 </Switch>
               </Suspense>
             </Container>

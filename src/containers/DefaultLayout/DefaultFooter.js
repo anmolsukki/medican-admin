@@ -6,7 +6,7 @@ class DefaultFooter extends React.Component {
     return (
       <React.Fragment>
         <span>
-          <Link to="#">React Admin</Link> &copy; Template
+          <Link to="#">Medicana Admin</Link> &copy; Template
         </span>
       </React.Fragment>
     );

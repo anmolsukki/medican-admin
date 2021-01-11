@@ -1,5 +1,5 @@
 import React from 'react';
-import './Users.scss';
+import './index.scss';
 
 const Users = () => {
   return (

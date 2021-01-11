@@ -1,1 +1,1 @@
-### React Admin
+### Medicana Admin
