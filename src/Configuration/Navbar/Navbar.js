@@ -6,8 +6,8 @@ export default {
       icon: 'icon-speedometer',
     },
     {
-      name: 'USERS',
-      url: '/users',
+      name: 'Items',
+      url: '/items',
       icon: 'icon-user',
     },
   ],
