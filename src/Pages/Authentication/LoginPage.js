@@ -10,6 +10,19 @@ class Login extends React.Component {
     };
   }
 
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  handleSubmit = () => {
+    if (this.state.email === 'admin' && this.state.password === 'admin') {
+      localStorage.setItem('token', 'sgdhdngf');
+      window.location.reload();
+    }
+  };
+
   render() {
     return (
       <div id="login-wrapper">
@@ -28,7 +41,7 @@ class Login extends React.Component {
                             <i className="icon-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Email" name="email" className="inputFocus" />
+                        <Input type="text" placeholder="Email" name="email" className="inputFocus" onChange={(e) => this.handleChange(e)} />
                       </InputGroup>
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
@@ -36,7 +49,7 @@ class Login extends React.Component {
                             <i className="icon-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type={this.state.passHidden ? 'password' : 'text'} placeholder="Password" name="password" className="inputFocus" />
+                        <Input type={this.state.passHidden ? 'password' : 'text'} placeholder="Password" name="password" className="inputFocus" onChange={(e) => this.handleChange(e)} />
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
                             <div className="icon-parts" onClick={() => this.setState({ passHidden: !this.state.passHidden })}>
@@ -47,7 +60,7 @@ class Login extends React.Component {
                       </InputGroup>
                       <Row>
                         <Col xs="6">
-                          <Button value="Submit" color="primary" className="px-4">
+                          <Button value="Submit" color="primary" className="px-4" onClick={() => this.handleSubmit()}>
                             Login
                           </Button>
                         </Col>
